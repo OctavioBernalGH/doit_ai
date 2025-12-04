@@ -36,7 +36,6 @@ export default function LandingPage() {
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background text-foreground transition-colors duration-300">
-      
       {/* 1. Fondos */}
       <div className="absolute inset-0 z-0 opacity-20 bg-animated-grid pointer-events-none"></div>
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,transparent_5%,rgb(var(--background))_90%)] pointer-events-none"></div>
@@ -54,7 +53,7 @@ export default function LandingPage() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setActiveModal("login")}
-          className="hidden sm:block rounded-full bg-primary px-6 py-2 text-sm font-bold text-foreground shadow-[0_0_20px_rgba(var(--primary),0.4)] transition hover:bg-green-600"
+          className="hidden sm:block rounded-full border-2 border-primary hover:border-green-600 bg-primary px-6 py-2 text-sm font-bold text-foreground shadow-[0_0_20px_rgba(var(--primary),0.4)] transition hover:bg-green-600"
         >
           {t("login")}
         </motion.button>
@@ -67,7 +66,7 @@ export default function LandingPage() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setActiveModal("register")}
-          className="rounded-full bg-primary px-6 py-2 text-sm font-bold text-foreground shadow-[0_0_20px_rgba(var(--primary),0.4)] transition hover:bg-green-600"
+          className="hidden sm:block rounded-full border-2 border-primary hover:border-green-600 bg-primary px-6 py-2 text-sm font-bold text-foreground shadow-[0_0_20px_rgba(var(--primary),0.4)] transition hover:bg-green-600"
         >
           {t("register")}
         </motion.button>
@@ -104,8 +103,11 @@ export default function LandingPage() {
           {t("heroTitle")
             .split(" ")
             .map((word, i) => {
-              const cleanWord = word.toLowerCase().replace(/[^a-zA-Záéíóúüñ]/g, "");
-              const isKeyword = cleanWord === "negocio" || cleanWord === "business";
+              const cleanWord = word
+                .toLowerCase()
+                .replace(/[^a-zA-Záéíóúüñ]/g, "");
+              const isKeyword =
+                cleanWord === "negocio" || cleanWord === "business";
 
               return isKeyword ? (
                 <span key={i} className="text-primary italic">
@@ -152,7 +154,11 @@ export default function LandingPage() {
       </motion.div>
 
       {/* 4. MODALES */}
-      <Modal isOpen={activeModal === "login"} onClose={closeModal} title={t("login")}>
+      <Modal
+        isOpen={activeModal === "login"}
+        onClose={closeModal}
+        title={t("login")}
+      >
         <LoginForm />
         <div className="mt-4 text-center text-sm text-gray-500">
           ¿Aún no tienes cuenta?
@@ -165,7 +171,11 @@ export default function LandingPage() {
         </div>
       </Modal>
 
-      <Modal isOpen={activeModal === "register"} onClose={closeModal} title={t("register")}>
+      <Modal
+        isOpen={activeModal === "register"}
+        onClose={closeModal}
+        title={t("register")}
+      >
         <div className="max-h-[80vh] overflow-y-auto px-1 scrollbar-hide">
           <RegisterForm />
           <div className="mt-6 border-t pt-4 text-center text-sm text-gray-500">
