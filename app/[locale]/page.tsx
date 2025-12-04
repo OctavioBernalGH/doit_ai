@@ -52,7 +52,6 @@ export default function LandingPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1 }}
           onClick={() => setActiveModal("login")}
-          // CAMBIO: grises neutros en lugar de azulados
           className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition hidden sm:block"
         >
           {t("login")}
@@ -65,7 +64,6 @@ export default function LandingPage() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setActiveModal("register")}
-          // CAMBIO: bg-primary (Verde corporativo) y sombra acorde
           className="rounded-full bg-primary px-6 py-2 text-sm font-bold text-white shadow-[0_0_20px_rgba(var(--primary),0.4)] transition hover:bg-green-600"
         >
           {t("register")}
@@ -104,7 +102,6 @@ export default function LandingPage() {
             .map((word, i) =>
               word.toLowerCase().includes("negocio") ||
               word.toLowerCase().includes("business") ? (
-                // CAMBIO: text-primary
                 <span key={i} className="text-primary italic">
                   {word}{" "}
                 </span>
