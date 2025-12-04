@@ -50,9 +50,11 @@ export default function LandingPage() {
         <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.1 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={() => setActiveModal("login")}
-          className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition hidden sm:block"
+          className="rounded-full bg-primary px-6 py-2 text-sm font-bold text-white shadow-[0_0_20px_rgba(var(--primary),0.4)] transition hover:bg-green-600"
         >
           {t("login")}
         </motion.button>
@@ -102,7 +104,7 @@ export default function LandingPage() {
             .map((word, i) =>
               word.toLowerCase().includes("negocio") ||
               word.toLowerCase().includes("business") ? (
-                <span key={i} className="text-primary italic">
+                <span key={i} className="text-green">
                   {word}{" "}
                 </span>
               ) : (
